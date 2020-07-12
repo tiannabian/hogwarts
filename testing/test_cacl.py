@@ -1,7 +1,10 @@
 #coding: utf-8
 #author = hewangtong
 #date = 2020/7/9
+from decimal import Decimal
 import pytest
+import yaml
+
 from pythoncode.cacl import Calculator
 
 def setup_module():
@@ -10,44 +13,56 @@ def setup_module():
 def teardown_module():
     print("【计算结束】")
 
-class TestCacl:
-    def teardown(self):
-        print("teardown")
+with open("datas/cacl.yaml") as f:
+    datas = yaml.safe_load(f)
+    add_datas = datas['add'].values()
+    add_ids = list(datas['add'].keys())
+    sub_datas = datas['sub'].values()
+    sub_ids = list(datas['sub'].keys())
+    multi_datas = datas['multi'].values()
+    multi_ids = list(datas['multi'].keys())
+    div_datas = datas['div'].values()
+    div_ids = list(datas['div'].keys())
 
-    # @pytest.mark.add
-    @pytest.mark.parametrize('a,b,result',[
-        (0,0,0),(2,2,4),(-100,-100,-200),(2,-3,-1),(0.01,0.02,0.03)
-    ],ids=['两个0相加','两个正整数相加','两个负整数相加','正整数和负整数相加','两个浮点数相加'])
-    def test_add(self, a, b, result):
+
+
+
+class CheckCacl:
+
+    @pytest.mark.dependency()
+    @pytest.mark.parametrize('a,b,result', add_datas ,ids=add_ids)
+    def check_add(self, a, b, result):
         assert result == Calculator().add(a, b)
 
-    # @pytest.mark.add
-    @pytest.mark.parametrize("a, b, result",[
-        (0,0,0),
-        (2,2,0),
-        (-100,-100,0),
-        (2,-3,5),
-        (0.01,0.02,-0.01)
-    ],ids=['两个0相减','两个正整数相减','两个负整数相减','正整数和负整数相减','两个浮点数相减'])
+
+    @pytest.mark.dependency(depends=["check_add"])
+    @pytest.mark.parametrize("a, b, result", sub_datas ,ids=sub_ids)
     def test_sub(self,a,b,result):
         assert result == Calculator().sub(a,b)
 
-    @pytest.mark.parametrize("a, b, result", [
-        (0, 0, 0),
-        (2, 2, 4),
-        (-100, -100, 10000),
-        (2, -3, -6),
-        (0.1, 2, 0.2)
-    ], ids=['两个0相乘', '两个正整数相乘', '两个负整数相乘', '正整数和负整数相乘', '一个正整数一个浮点数相乘'])
-    def test_multi(self, a, b, result):
-        assert result == Calculator().multi(a,b)
 
-    # @pytest.mark.div
-    @pytest.mark.parametrize("a, b, result", [
-        (2, 2, 1),
-        (-100, -100, 1),
-        (6, -3, -2),
-        (0.2, 0.1, 2)
-    ], ids=['两个正整数相除', '两个负整数相除', '正整数和负整数相除', '两个浮点数相除'])
-    def test_div(self, a, b, result):
+    @pytest.mark.dependency()
+    @pytest.mark.parametrize("a, b, result", multi_datas, ids=multi_ids)
+    def check_multi(self, a, b, result):
+        print(type(a),type(b))
+        if type(a)=='float' and type(b)=='float':
+            assert result == Calculator().multi(Decimal(a), Decimal(b))
+        else:
+            assert result == Calculator().multi(a,b)
+
+
+    @pytest.mark.dependency(depends=["check_multi"])
+    @pytest.mark.parametrize("a, b, result", div_datas, ids=div_ids)
+    def check_div(self, a, b, result):
         assert result == Calculator().div(a, b)
+
+
+    # def test_assume(self):
+    #     print("登录操作")
+    #     pytest.assume(2==2)
+    #     print("加购操作")
+
+
+
+
+

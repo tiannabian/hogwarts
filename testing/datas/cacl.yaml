@@ -1,0 +1,29 @@
+
+add:
+  two_zero: [0,0,0]
+  two_positive: [2,2,4]
+  two_negative: [-100,-100,-200]
+  positive_and_negative: [2,-3,-1]
+  two_float: [0.01,0.02,0.03]
+
+sub:
+  two_zero: [0,0,0]
+  two_positive: [2,2,0]
+  two_negative: [-100,-100,0]
+  positive_and_negative: [2,-3,5]
+  two_float: [0.01,0.02,-0.01]
+
+multi:
+  two_zero: [0,0,0]
+  two_positive: [2,2,4]
+  two_negative: [-1,-2,2]
+  positive_and_negative: [2,-3,-6]
+  #two_float: [0.1,0.2,0.02]
+
+div:
+  two_positive: [2,2,1]
+  two_negative: [-100,-100,1]
+  positive_and_negative: [6,-3,-2]
+  two_float: [0.2,0.1,2]
+
+
