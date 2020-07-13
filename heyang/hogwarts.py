@@ -76,31 +76,36 @@ actions.perform()
 
 TouchAction: 模拟PC端和移动端的点击、滑动、拖拽，多点触控等多种手势操作
 —————————+——+——+——+——+——+——+——+——+——"""
-from selenium import webdriver
+# from selenium import webdriver
+#
+# class TestHogwarts():
+#     def setup(self):
+#         self.driver = webdriver.Chrome()
+#         self.driver.get("https://www.baidu.com/")
+#     def teardown(self):
+#         self.driver.quit()
+#
+#     def test_hogwarts(self):
+#
+#         # self.driver.find_element(By.XPATH,'//*[@id="kw"]').send_keys("霍格沃兹测试学院")
+#         # self.driver.find_element(By.ID, "kw").send_keys("霍格沃兹测试学院")
+#         self.driver.find_element(By.CSS_SELECTOR, "#kw").send_keys("霍格沃兹测试学院")
+#
+# class TestActionChains():
+#     def setup(self):
+#         self.driver = webdriver.Chrome()
+#         self.driver.get("https://www.baidu.com/")
+#
+#     def teardown(self):
+#         self.driver.quit()
+#
+#     def test_case_click(self):
+#         pass
 
-class TestHogwarts():
-    def setup(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("https://www.baidu.com/")
-    def teardown(self):
-        self.driver.quit()
 
-    def test_hogwarts(self):
 
-        # self.driver.find_element(By.XPATH,'//*[@id="kw"]').send_keys("霍格沃兹测试学院")
-        # self.driver.find_element(By.ID, "kw").send_keys("霍格沃兹测试学院")
-        self.driver.find_element(By.CSS_SELECTOR, "#kw").send_keys("霍格沃兹测试学院")
 
-class TestActionChains():
-    def setup(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get("https://www.baidu.com/")
 
-    def teardown(self):
-        self.driver.quit()
-
-    def test_case_click(self):
-        pass
 
 
 

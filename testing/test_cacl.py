@@ -29,19 +29,19 @@ with open("datas/cacl.yaml") as f:
 
 class CheckCacl:
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name="A")
     @pytest.mark.parametrize('a,b,result', add_datas ,ids=add_ids)
     def check_add(self, a, b, result):
         assert result == Calculator().add(a, b)
 
 
-    @pytest.mark.dependency(depends=["check_add"])
+    @pytest.mark.dependency(name="B", depends=["A"])
     @pytest.mark.parametrize("a, b, result", sub_datas ,ids=sub_ids)
     def test_sub(self,a,b,result):
         assert result == Calculator().sub(a,b)
 
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name="C")
     @pytest.mark.parametrize("a, b, result", multi_datas, ids=multi_ids)
     def check_multi(self, a, b, result):
         print(type(a),type(b))
@@ -51,7 +51,7 @@ class CheckCacl:
             assert result == Calculator().multi(a,b)
 
 
-    @pytest.mark.dependency(depends=["check_multi"])
+    @pytest.mark.dependency(name="D", depends=["C"])
     @pytest.mark.parametrize("a, b, result", div_datas, ids=div_ids)
     def check_div(self, a, b, result):
         assert result == Calculator().div(a, b)
