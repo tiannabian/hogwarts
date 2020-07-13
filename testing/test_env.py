@@ -3,6 +3,7 @@
 #date = 2020/7/12
 
 # 测试用例通过传入 fixture方法，获取 测试数据/ 开发数据
+
 def test_case(cmdoption):
     print("测试环境验证")
     env, datas = cmdoption

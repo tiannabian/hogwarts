@@ -24,9 +24,6 @@ with open("datas/cacl.yaml") as f:
     div_datas = datas['div'].values()
     div_ids = list(datas['div'].keys())
 
-
-
-
 class CheckCacl:
 
     @pytest.mark.dependency(name="A")

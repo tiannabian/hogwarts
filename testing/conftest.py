@@ -22,7 +22,6 @@ import pytest
 #     print("teardown")
 import yaml
 
-
 #自定义测试用例的执行顺序
 def pytest_collection_modifyitems(
         session: "Session", config: "Config", items: List["Item"]
