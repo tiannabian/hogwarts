@@ -3,6 +3,8 @@
 #date = 2020/7/18
 import pytest
 from appium import webdriver
+from appium.webdriver.common.touch_action import TouchAction
+
 
 class TestDW():
 
@@ -66,6 +68,25 @@ class TestDW():
         print("搜索成功")
       else:
         print("搜索失败")
+
+  def test_touchaction(self):
+    action = TouchAction(self.driver)
+    window_rect = self.driver.get_window_rect()
+    width = window_rect['width']
+    height = window_rect['height']
+    x1 = int(width/2)
+    y_start = int(height*4/5)
+    y_end = int(height*1/5)
+    action.press(x=x1, y=y_start).wait(200).move_to(x=x1, y=y_end).release().perform()
+
+  def test_touchaction_aunlock(self):
+    print("解锁操作")
+    action = TouchAction(self.driver)
+    action.press(x=243,y=395).wait(200).move_to(x=721,y=378).wait(200).move_to(x=1190,y=364).wait(200).move_to(x=1202,y=859).wait(200).move_to(x=1195,y=1339).wait(200).release().perform()
+
+
+
+
 
 
 
