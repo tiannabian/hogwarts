@@ -2,13 +2,16 @@ from xueqiu_app.page.app import App
 
 
 class TestXueqiu:
+
     def setup(self):
         self.app = App()
 
     def test_market(self):
+        """测试行情"""
         self.app.start().goto_main().goto_market()
 
     def test_search(self):
+        """测试搜索"""
         search = self.app.start().goto_main().goto_market().goto_search()
         search.search("阿里巴巴")
         assert search.is_choose("阿里巴巴")

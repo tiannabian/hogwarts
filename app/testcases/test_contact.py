@@ -6,7 +6,7 @@ class TestContact:
 
     def setup_class(self):
         self.app = App()
-        pass
+
 
     def test_addcontact(self):
         pass
