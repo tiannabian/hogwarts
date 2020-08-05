@@ -16,11 +16,9 @@ class App(BasePage):
             # 第一次调用start（）方法的时候driver 为None
             caps = {}
             caps["platformName"] = "android"
-            caps["deviceName"] = "127.0.0.1:7555"
             caps["appPackage"] = "com.xueqiu.android"
             caps["appActivity"] = ".view.WelcomeActivityAlias"
             caps["noReset"] = "true"
-            caps["resetKeyBoard"] = "true"
             self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         else:
             # launch_app() 这个方法不需要传入任何参数， 会自动启动起来DesireCapa里面定义的activity
