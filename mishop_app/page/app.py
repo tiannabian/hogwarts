@@ -1,11 +1,8 @@
 from selenium import webdriver
-
 from mishop_app.page.base_page import BasePage
 from mishop_app.page.main import Main
 
-
 class App(BasePage):
-
     def start(self):
         '''
         启动app

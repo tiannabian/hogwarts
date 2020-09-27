@@ -1,9 +1,11 @@
 from mishop_app.page.base_page import BasePage
-from mishop_app.page.search import Search
-
+from mishop_app.page.product import Product
 
 class Classification(BasePage):
-
-    def goto_search(self):
-
-        return Search(self.driver)
+    """这个是分类页的PO"""
+    def goto_product(self):
+        """
+        进入单品页
+        :return:
+        """
+        return Product(self.driver)
