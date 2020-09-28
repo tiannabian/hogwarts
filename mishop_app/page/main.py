@@ -9,4 +9,5 @@ class Main(BasePage):
         """
         进入搜索结果页面
         """
+        self.steps("", "")
         return Search(self.driver)

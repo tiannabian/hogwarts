@@ -3,9 +3,13 @@ import json
 import yaml
 from selenium.webdriver.android.webdriver import WebDriver
 
+from mishop_app.page.handle_black import handle_black
+
 
 class BasePage:
     """基础数据PO"""
+    _params = {}
+
     def __init__(self, driver: WebDriver = None):
         self.driver = driver
 
