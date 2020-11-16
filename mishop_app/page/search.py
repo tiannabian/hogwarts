@@ -10,7 +10,7 @@ class Search(BasePage):
         :return:
         """
         pass
-        # return Product(self.driver)
+        return Business(self.driver)
 
     def goto_store(self):
         """

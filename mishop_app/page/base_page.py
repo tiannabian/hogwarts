@@ -52,10 +52,9 @@ class BasePage:
 """
 店：  store
 商：  business
-本月指标： 
-销售数据：
-
-分货规则：
+本月指标：  new_month_index
+销售数据：   sales_data
+分货规则：   distributionrules
 北京线下：  new_capa_ms_view   
 本月销售汇总：   new_month_data_view
 专卖店返利数据：   new_rebate_data_view
