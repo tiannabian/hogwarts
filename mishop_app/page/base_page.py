@@ -47,3 +47,27 @@ class BasePage:
                 if "len > 0" == action:
                     eles = self.finds(step["by"], step["locator"])
                     return len(eles) > 0
+
+
+"""
+店：  store
+商：  business
+本月指标： 
+销售数据：
+
+分货规则：
+北京线下：  new_capa_ms_view   
+本月销售汇总：   new_month_data_view
+专卖店返利数据：   new_rebate_data_view
+当日销售：  new_today_data_view
+本月合作商排名： new_business_top_view
+本月门店排名：  new_store_top_view
+零售学院：  Retail College
+我的：  My view
+
+
+"""
+
+
+
+

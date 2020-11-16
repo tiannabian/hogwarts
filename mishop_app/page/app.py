@@ -11,8 +11,8 @@ class App(BasePage):
             # 第一次调用start（）方法的时候driver 为None
             caps = {}
             caps["platformName"] = "android"
-            caps["appPackage"] = "com.xueqiu.android"
-            caps["appActivity"] = ".view.WelcomeActivityAlias"
+            caps["appPackage"] = "com.xiaomi.smartmijia"
+            caps["appActivity"] = "com.xiaomi.youpin.activity.YouPinMainTabActivity"
             caps["noReset"] = "true"
             self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         else:
